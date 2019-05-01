@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
+
+.calc-font, .button {
+  font-size: 16px;
+}
+
+.calc-container {
+  width: 260px;
+}
+
+.text-font {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.results {
+  width: 240px;
+}
+
+.result-line {
+  font-family: monospace;
+  font-size: 1.1em;
+  line-height: 0.5em;
+}
+
+.digits-hide {
+  display: none;
+}
+
+.button-container {
+  width: 300px;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 6px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    border-radius: 6px;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:active {
+  background-color: blue;
+}
+
+.button:disabled {
+    background: #F5F5F5;
+    color : #C3C3C3;
+    border: 2px solid #AAAAAA;
+}
+
+.button-single {
+  width: 40px;
+  height: 40px;
+}
+
+.button-double {
+  width: 94px;
+  height: 40px;
+}
+
+.button-triple {
+  width: 144px;
+  height: 40px;
+}
