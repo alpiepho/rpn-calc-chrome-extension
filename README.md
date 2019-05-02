@@ -24,11 +24,10 @@ At this point, this Extension is not published on the Google Play Store.  It use
 
 A few next steps and features:
 
-- Want to allow input from keyboard
+- Want to allow input from keyboard - DONE
 - Want to implement "." decimal point input
 - Want to save Extension settings in Chrome memory so it can transfer between computers
-- Want to add some fun features like re-arranging buttons and changing colors
 - Want to write decent Extension documentation and publish
 
 ## About Me
-I am long time embedded systems software engineer in the middle of shifting gears, and exploring JavaScript and other web frameworks.  This is my first relatively complete public application.
+I am a long time embedded systems software engineer in the middle of shifting gears, and exploring JavaScript and other web frameworks.  This is my first relatively complete public application.

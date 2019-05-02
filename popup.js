@@ -350,6 +350,52 @@ function buildHtml() {
   $("#buttonDot").attr("disabled", "true");
 }
 
+$(document).keyup(function(e) {
+  console.log(e.keyCode);
+  switch (e.keyCode) {
+    case 48: digitClick('0'); break;
+    case 49: digitClick('1'); break;
+    case 50: digitClick('2'); break;
+    case 51: digitClick('3'); break;
+    case 52: digitClick('4'); break;
+    case 53: 
+      if (e.shiftKey) formatClick();
+      else            digitClick('5'); 
+      break;
+    case 54:
+      if (e.shiftKey) operationClick('^');
+      else            digitClick('6'); 
+      break;
+  case 55:
+      if (e.shiftKey) operationClick('&');
+      else            digitClick('7'); 
+      break;
+  case 56:
+      if (e.shiftKey) operationClick('*');
+      else            digitClick('8'); 
+      break;
+  case 57: digitClick('9'); break;
+    case 65: if (fmtHex) digitClick('A'); break;
+    case 66: if (fmtHex) digitClick('B'); break;
+    case 67: if (fmtHex) digitClick('C'); break;
+    case 68: if (fmtHex) digitClick('D'); break;
+    case 69: if (fmtHex) digitClick('E'); break;
+    case 70: if (fmtHex) digitClick('F'); break;
+    case 32: operationClick('enter'); break;
+    case 40: operationClick('drop'); break;
+    case  8: operationClick('clr');   break;
+    case  187: if (e.shiftKey) operationClick('+');   break;
+    case  187: if (e.shiftKey) operationClick('-');   break;
+    case  191: operationClick('/');   break;
+    case  220: if (e.shiftKey) operationClick('|');   break;
+    case  193: if (e.shiftKey) operationClick('~');   break;
+    case  37: operationClick('+/-');   break;
+    case  39: operationClick('+/-');   break;
+    case  188: if (e.shiftKey) operationClick('<<');   break;
+    case  190: if (e.shiftKey) operationClick('>>');   break;   
+  }
+});
+
 ///////////////////////////////////////////////////////////
 // MAIN
 ///////////////////////////////////////////////////////////
