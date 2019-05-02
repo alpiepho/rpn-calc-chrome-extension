@@ -396,6 +396,16 @@ $(document).keyup(function(e) {
   }
 });
 
+$('#title').click(function() {
+  document.getElementById('about-overlay').style.display = "block";
+  document.getElementById('about').style.display = "block";
+})
+
+$('#about').click(function() {
+  document.getElementById('about-overlay').style.display = "none";
+  document.getElementById('about').style.display = "none";
+})
+
 ///////////////////////////////////////////////////////////
 // MAIN
 ///////////////////////////////////////////////////////////

@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RPM Hex Calculator v0.1</title>
+    <title >RPM Hex Calculator v0.1</title>
     <link rel="stylesheet" href="popup.css"/>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
     <div class="calc-container">
-      <p class="text-font">RPN Hex Calculator</p>
+      <p id="title" class="text-font">RPN Hex Calculator</p>
       <div class="calc-font" id="calculator"></div>
+    </div>      
+
+    <div id="about-overlay" class="about-overlay about-hide">
+      &nbsp;
+    </div>
+    <div id="about" class="about about-hide">
+      <p >v0.1</p>
+      <p>A simple Hex calculator that uses reverse polish notation.</p>
+      <p>Thanks for trying our app!</p>
+      <p>- "Thatname Group"</p>
     </div>
   </body>
   <script type="text/javascript" src="jquery-3.2.1.slim.min.js"></script>
