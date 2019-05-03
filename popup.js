@@ -57,6 +57,33 @@ var opsHexOnly = [
 
 
 ///////////////////////////////////////////////////////////
+// LOCAL STORAGE FUNCTIONS
+///////////////////////////////////////////////////////////
+function getFromLocalStorage() {
+  chrome.storage.local.get(['key'], function(result) {
+    console.log('Value currently is ' + result.key);
+    data = JSON.parse(result.key);
+    fmtHex = data['fmtHex'];
+    stack = data['stack'];
+    if (!fmtHex) {
+      formatClick();
+    }
+    showLines();
+  });
+}
+
+function saveToLocalStorage() {
+  s = stack.join(',')
+  data = {}
+  data['fmtHex'] = fmtHex;
+  data['stack'] = stack;
+  s = JSON.stringify(data);
+  chrome.storage.local.set({key: s}, function() {
+    console.log('Value is set to ' + s);
+  });
+}
+
+///////////////////////////////////////////////////////////
 // DIGIT LINE FUNCTIONS
 ///////////////////////////////////////////////////////////
 function showDigits() {
@@ -111,6 +138,7 @@ function showLines() {
   var val;
   var str;
   var line;
+
   for (i=0; i<MAX_LINES_SHOWN; i++) {
     val = stack[i];
     str = i+1 + ": ";
@@ -153,6 +181,8 @@ function pushLine() {
   stack.unshift(val);
   showLines();
   clearDigits();
+
+  saveToLocalStorage();
 }
 
 function popLine() {
@@ -215,6 +245,8 @@ function formatClick() {
   // disable . for now
   $("#buttonDot").attr("disabled", "true");
   formatLines(op);
+
+  saveToLocalStorage();
 }
 
 function operationClick(op) {
@@ -414,3 +446,5 @@ $('#about').click(function() {
 buildHtml();
 clearDigits();
 clearLines();
+
+getFromLocalStorage();
