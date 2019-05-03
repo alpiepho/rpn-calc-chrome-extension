@@ -63,6 +63,10 @@ body {
   background-color: blue;
 }
 
+.button-active {
+  background-color: blue;
+}
+
 .button:disabled {
     background: #aaa;
     color : #C3C3C3;

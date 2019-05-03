@@ -60,16 +60,20 @@ var opsHexOnly = [
 // LOCAL STORAGE FUNCTIONS
 ///////////////////////////////////////////////////////////
 function getFromLocalStorage() {
-  chrome.storage.local.get(['key'], function(result) {
-    console.log('Value currently is ' + result.key);
-    data = JSON.parse(result.key);
-    fmtHex = data['fmtHex'];
-    stack = data['stack'];
-    if (!fmtHex) {
-      formatClick();
-    }
-    showLines();
-  });
+  try {
+    chrome.storage.local.get(['key'], function(result) {
+      console.log('Value currently is ' + result.key);
+      data = JSON.parse(result.key);
+      fmtHex = data['fmtHex'];
+      stack = data['stack'];
+      if (!fmtHex) {
+        formatClick();
+      }
+      showLines();
+    });  
+  } catch(e) {
+    console.log('chrome.storage.local.get failed. ' + e);
+  }
 }
 
 function saveToLocalStorage() {
@@ -78,9 +82,13 @@ function saveToLocalStorage() {
   data['fmtHex'] = fmtHex;
   data['stack'] = stack;
   s = JSON.stringify(data);
-  chrome.storage.local.set({key: s}, function() {
-    console.log('Value is set to ' + s);
-  });
+  try {
+    chrome.storage.local.set({key: s}, function() {
+      console.log('Value is set to ' + s);
+    });
+} catch(e) {
+  console.log('chrome.storage.local.set failed. ' + eval);
+}
 }
 
 ///////////////////////////////////////////////////////////
@@ -382,51 +390,62 @@ function buildHtml() {
   $("#buttonDot").attr("disabled", "true");
 }
 
+function simulateButton(text) {
+  el = document.getElementById('button' + text);
+  el.classList.add('button-active');
+  el.click();
+  setTimeout(function () {
+    el.classList.remove('button-active');
+  }, 50);
+}
+
 $(document).keyup(function(e) {
   console.log(e.keyCode);
   switch (e.keyCode) {
-    case 48: digitClick('0'); break;
-    case 49: digitClick('1'); break;
-    case 49: document.getElementById('button1').click(); break;
-    case 50: digitClick('2'); break;
-    case 51: digitClick('3'); break;
-    case 52: digitClick('4'); break;
+    case 48: simulateButton('0'); break;
+    //case 49: digitClick('1'); break;
+    case 49: simulateButton('1'); break;
+    case 50: simulateButton('2'); break;
+    case 51: simulateButton('3'); break;
+    case 52: simulateButton('4'); break;
     case 53: 
       if (e.shiftKey) formatClick();
-      else            digitClick('5'); 
+      else            simulateButton('5'); 
       break;
     case 54:
-      if (e.shiftKey) operationClick('^');
-      else            digitClick('6'); 
+      if (e.shiftKey) simulateButton('Xor');
+      else            simulateButton('6'); 
       break;
     case 55:
-      if (e.shiftKey) operationClick('&');
-      else            digitClick('7'); 
+      if (e.shiftKey) simulateButton('And');
+      else            simulateButton('7'); 
       break;
     case 56:
-      if (e.shiftKey) operationClick('*');
-      else            digitClick('8'); 
+      if (e.shiftKey) simulateButton('Mul');
+      else            simulateButton('8'); 
       break;
-    case 57: digitClick('9'); break;
-    case 65: if (fmtHex) digitClick('A'); break;
-    case 66: if (fmtHex) digitClick('B'); break;
-    case 67: if (fmtHex) digitClick('C'); break;
-    case 68: if (fmtHex) digitClick('D'); break;
-    case 69: if (fmtHex) digitClick('E'); break;
-    case 70: if (fmtHex) digitClick('F'); break;
+    case 57: simulateButton('9'); break;
+    case 65: simulateButton('A'); break;
+    case 66: simulateButton('B'); break;
+    case 67: simulateButton('C'); break;
+    case 68: simulateButton('D'); break;
+    case 69: simulateButton('E'); break;
+    case 70: simulateButton('F'); break;
     //case 13: operationClick('enter'); break;
-    case 13: document.getElementById('buttonEnter').click(); break;
-    case 40: operationClick('drop'); break;
-    case  8: operationClick('clr');   break;
-    case  187: if (e.shiftKey) operationClick('+');   break;
-    case  187: if (e.shiftKey) operationClick('-');   break;
-    case  191: operationClick('/');   break;
-    case  220: if (e.shiftKey) operationClick('|');   break;
-    case  193: if (e.shiftKey) operationClick('~');   break;
-    case  37: operationClick('+/-');   break;
-    case  39: operationClick('+/-');   break;
-    case  188: if (e.shiftKey) operationClick('<<');   break;
-    case  190: if (e.shiftKey) operationClick('>>');   break;   
+    case 13: simulateButton('Enter'); break;
+    case 40: simulateButton('Drop'); break;
+    case  8: simulateButton('Clr');   break;
+    case 187: if (e.shiftKey) simulateButton('Plus');   break;
+    case 187: if (e.shiftKey) simulateButton('Minus');  break;
+    case 191: operationClick('/');   break;
+    case 220: if (e.shiftKey) simulateButton('Or');   break;
+    case 193: if (e.shiftKey) simulateButton('Not');   break;
+    case 37: simulateButton('Chs');   break;
+    case 39: simulateButton('Chs');   break;
+    case 188: if (e.shiftKey) simulateButton('ShiftLeft');   break;
+    case 190: if (e.shiftKey) simulateButton('ShiftRight');  break;   
+    case 32: console.log('skip space'); break; // WARNING, space still repeats last button
+
   }
 });
 
