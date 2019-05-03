@@ -1,7 +1,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
-  background: #eee;
+  background: #888;
 }
 
 .calc-font, .button {
@@ -16,10 +16,15 @@ body {
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
+  color: #ddd;
 }
 
 .results {
   width: 240px;
+  border: 5px solid rgb(3, 107, 9);
+  background: rgb(8, 216, 60);
+  color: white;
+  padding: 2px;
 }
 
 .result-line {
@@ -44,10 +49,10 @@ body {
     display: inline-block;
     margin: 6px;
     cursor: pointer;
-    background-color: white;
+    background-color: #ddd;
     color: black;
-    border: 2px solid #555555;
-    border-radius: 6px;
+    border: 5px solid #555;
+    border-radius: 4px;
 }
 
 .button:focus {
@@ -59,9 +64,9 @@ body {
 }
 
 .button:disabled {
-    background: #F5F5F5;
+    background: #aaa;
     color : #C3C3C3;
-    border: 2px solid #AAAAAA;
+    border: 5px solid #555;
 }
 
 .button-single {

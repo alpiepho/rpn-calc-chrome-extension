@@ -355,6 +355,7 @@ $(document).keyup(function(e) {
   switch (e.keyCode) {
     case 48: digitClick('0'); break;
     case 49: digitClick('1'); break;
+    case 49: document.getElementById('button1').click(); break;
     case 50: digitClick('2'); break;
     case 51: digitClick('3'); break;
     case 52: digitClick('4'); break;
@@ -366,22 +367,23 @@ $(document).keyup(function(e) {
       if (e.shiftKey) operationClick('^');
       else            digitClick('6'); 
       break;
-  case 55:
+    case 55:
       if (e.shiftKey) operationClick('&');
       else            digitClick('7'); 
       break;
-  case 56:
+    case 56:
       if (e.shiftKey) operationClick('*');
       else            digitClick('8'); 
       break;
-  case 57: digitClick('9'); break;
+    case 57: digitClick('9'); break;
     case 65: if (fmtHex) digitClick('A'); break;
     case 66: if (fmtHex) digitClick('B'); break;
     case 67: if (fmtHex) digitClick('C'); break;
     case 68: if (fmtHex) digitClick('D'); break;
     case 69: if (fmtHex) digitClick('E'); break;
     case 70: if (fmtHex) digitClick('F'); break;
-    case 32: operationClick('enter'); break;
+    //case 13: operationClick('enter'); break;
+    case 13: document.getElementById('buttonEnter').click(); break;
     case 40: operationClick('drop'); break;
     case  8: operationClick('clr');   break;
     case  187: if (e.shiftKey) operationClick('+');   break;
