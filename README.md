@@ -24,6 +24,7 @@ At this point, this Extension is not published on the Google Play Store.  It use
 
 A few next steps and features:
 
+- Fix keyboard input, getting flaky results so had to disable
 - Want to implement "." decimal point input, and float mode
 
 
