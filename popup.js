@@ -460,7 +460,7 @@ function buildHtml() {
 //     case 188: if (e.shiftKey) simulateButton('ShiftLeft');   break;
 //     case 190: if (e.shiftKey) simulateButton('ShiftRight');  break;   
 //   }
-// });
+//});
 
 $('#title').click(function() {
   document.getElementById('about-overlay').style.display = "block";

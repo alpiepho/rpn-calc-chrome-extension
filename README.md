@@ -20,6 +20,19 @@ At this point, this Extension is not published on the Google Play Store.  It use
 - select "Load unpacked extension..."
 - then navigate to directory you cloned this repository into
 
+## How To Test
+
+- Install Ruby. (Mac use homebrew)
+- Install watir (sudo gem install watir)
+- Install chromedriver (download from http://chromedriver.chromium.org/, unpack, move to test directory)
+- change PATH (export PATH=$PATH:.)
+- cd test
+- ruby rpn_hex_test.rb -u file:///<path to files>/popup.html
+
+Then enjoy the rapid auto execution of the calculator.
+
+
+
 ## Next Steps
 
 A few next steps and features:
