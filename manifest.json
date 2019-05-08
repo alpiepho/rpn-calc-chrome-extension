@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
   "name": "RPN Hex Calculator",
+  "short_name": "RPN Hex Calc",
   "version": "0.1",
   "description": "A simple Hex calculator that uses RPN (reverse polish notation).",
   "icons": { "128": "icon.png" },
