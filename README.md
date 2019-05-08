@@ -11,9 +11,9 @@ A simple reverse-polish-notation (RPN) hex/dec calculator.  This Chrome Extensio
 - Also included here, are several Ruby files to test the application.
 - The test used Watir (a Ruby implementation of Selenium) and the Chrome driver to automate browser execution
 
-![Alt text](/releases/screenshots/image3.png?raw=true "Hexidecimal Mode")
+![Alt text](/releases/screenshots/image3.png?raw=true | width=48)
 
-![Alt text](/releases/screenshots/image4.png?raw=true "Decimal Mode")
+![Alt text](/releases/screenshots/image4.png?raw=true | width=48)
 
 ## How To Use It
 
