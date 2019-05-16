@@ -1,4 +1,4 @@
-# rpn_hex_calc (v0.1) - Google Chrome Extension.
+# rpn_hex_calc - Google Chrome Extension.
 
 A simple reverse-polish-notation (RPN) hex/dec calculator.  This Chrome Extension allows quick access to a tool to do simple hex operations and/or see the decimal value.
 

@@ -27,7 +27,7 @@ require './test_random.rb'
 ###########################################################
 # CONSTANTS and GLOBAL VARIABLES
 ###########################################################
-APP_VERSION = "0.1"
+APP_VERSION = "0.3"
 
 DEFAULT_RANDOM_CNT = 100
 

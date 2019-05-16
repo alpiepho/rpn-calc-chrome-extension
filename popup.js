@@ -62,13 +62,15 @@ var opsHexOnly = [
 function getFromLocalStorage() {
   try {
     chrome.storage.local.get(['key'], function(result) {
-      data = JSON.parse(result.key);
-      fmtHex = data['fmtHex'];
-      stack = data['stack'];
-      if (!fmtHex) {
-        formatClick();
+      if (result.key) {
+        data = JSON.parse(result.key);
+        fmtHex = data['fmtHex'];
+        stack = data['stack'];
+        if (!fmtHex) {
+          formatClick();
+        }
+        showLines();  
       }
-      showLines();
     });  
   } catch(e) {
     console.log('chrome.storage.local.get failed. ' + e);
@@ -95,11 +97,13 @@ function saveToLocalStorage() {
 function showDigits() {
   //console.log('showDigits: ' + digits)
   //console.log(document.getElementById("digits").innerHTML)
-  document.getElementById("digits").innerHTML = digits;
-  document.getElementById("digits").innerHTML = digits;
-  //console.log(document.getElementById("digits").innerHTML)
-  document.getElementById("digits").blur();
-  document.getElementById("digits").focus();
+  if (document.getElementById("digits")) {
+    document.getElementById("digits").innerHTML = digits;
+    document.getElementById("digits").innerHTML = digits;
+    //console.log(document.getElementById("digits").innerHTML)
+    document.getElementById("digits").blur();
+    document.getElementById("digits").focus();
+  }
 }
 
 function clearDigits() {
@@ -169,8 +173,10 @@ function showLines() {
       }
     }
     line = "line" + i;
-    document.getElementById(line).innerHTML = str;
-  }
+    if (document.getElementById(line)) {
+      document.getElementById(line).innerHTML = str;
+    }
+   }
 }
 
 function formatLines(fmt) {
